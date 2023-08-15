@@ -3,7 +3,8 @@ import {
   Column,
   Model,
   AutoIncrement,
-  PrimaryKey
+  PrimaryKey,
+  HasMany,
 } from 'sequelize-typescript';
 import { ModelAttributeColumnOptions } from 'sequelize';
 
@@ -18,17 +19,20 @@ export default class MenuItem extends Model {
   declare id: number;
 
   @Column
-  name: string;
+  declare name: string;
 
   @Column
-  url: string;
+  declare url: string;
 
   @Column({
     type: 'integer',
     defaultValue: null,
   } as ModelAttributeColumnOptions)
-  parentId: number;
+  declare parentId: number;
 
   @Column({ type: 'datetime' } as ModelAttributeColumnOptions)
   declare createdAt: Date;
+
+  @HasMany(() => MenuItem, 'parentId')
+  declare children: MenuItem[];
 }

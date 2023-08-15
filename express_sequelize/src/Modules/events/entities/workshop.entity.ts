@@ -18,19 +18,19 @@ export default class Workshop extends Model {
   declare id: number;
 
   @Column({ type: 'datetime' } as ModelAttributeColumnOptions)
-  start: string;
+  declare start: string;
 
   @Column({ type: 'datetime' } as ModelAttributeColumnOptions)
-  end: string;
+  declare end: string;
 
   @Column({
     type: 'integer',
     defaultValue: null,
   } as ModelAttributeColumnOptions)
-  eventId: number;
+  declare eventId: number;
 
   @Column
-  name: string;
+  declare name: string;
 
   @Column({ type: 'datetime' } as ModelAttributeColumnOptions)
   declare createdAt: string;
